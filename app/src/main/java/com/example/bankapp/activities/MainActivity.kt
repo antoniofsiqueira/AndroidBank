@@ -11,7 +11,8 @@ import com.example.bankapp.api.RestClient
 import com.example.bankapp.exibirMensagem
 import com.example.bankapp.isCpf
 import com.example.bankapp.isEmail
-import com.example.bankapp.models.UserAccount
+import com.example.bankapp.models.LoginResponse
+import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.telainicial.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.telainicial)
+        setContentView(R.layout.login)
 
         initVars()
         initActions()
@@ -38,9 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initActions() {
 
-    btn_login.setOnClickListener {
+    btn_Login.setOnClickListener {
         //if(validate()){
-            chamadaLogin()
+        chamadaLogin()
+
 
         //}else{
           //  exibeErro()
@@ -102,30 +104,21 @@ class MainActivity : AppCompatActivity() {
         val bankApi = RestClient.getClient().create(Api::class.java)
         val loginCall = bankApi.loginUser("test_user", "Test@1")
 
-        loginCall.enqueue(object : Callback<UserAccount> {
+        loginCall.enqueue(object : Callback<LoginResponse> {
 
-            override fun onFailure(call: Call<UserAccount>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
 
             }
 
-            override fun onResponse(call: Call<UserAccount>, response: Response<UserAccount>) {
-                val result = response.body()
-                Toast.makeText(applicationContext, "==VAI CURINTIA!!!", Toast.LENGTH_LONG).show()
-                var intent = Intent(context, ContaActivity::class.java)
-                //intent.putExtra("teste", result?.userId)
-                startActivity(intent)
-                /* if(result!!.error!=null && !result!!.error!!.code.isEmpty()){
-                    Toast.makeText(context, result!!.error!!.message, Toast.LENGTH_SHORT).show()
-                    context.showMessage(result!!.error!!.message)
-                }
-                else{
-                    storeUserData(user, password)
-                    var intent = Intent(context, CurrencyActivity::class.java)
-                    intent.putExtra(Constants.USER_ACCOUNT, result.userAccount)
-                    startActivity(intent)
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
-                }*/
+                Toast.makeText(applicationContext, "==VAI CURINTIA!!!", Toast.LENGTH_LONG).show()
+                val result = response.body()
+                var intent = Intent(context, ContaActivity::class.java)
+                intent.putExtra("userIds", result?.userAccount?.userId)
+                startActivity(intent)
+
             }
         }
         )

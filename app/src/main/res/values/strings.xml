@@ -11,4 +11,10 @@
     <string name="alerta_erro_senha_obrigatoria">Erro: Senha é obrigatória</string>
     <string name="alerta_erro_credencial_valido">Erro: User precisar ser um CPF ou E-mail válido!!!</string>
     <string name="alerta_credenciais_validas">Credenciais válidas!!!</string>
+
+    <!-- Conta -->
+    <string name="txv_pagamento">Pagamento</string>
+    <string name="txv_data">Data</string>
+    <string name="txv_luz">Conta de luz</string>
+
 </resources>

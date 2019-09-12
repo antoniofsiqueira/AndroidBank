@@ -1,84 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ContaActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="232dp"
+        android:background="@color/backgroundColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logout_2" />
+
+    <TextView
+        android:id="@+id/tvNomeDoCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="40dp"
+        android:text="Jose da Silva Teste"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_titulo1"/>
+
+    <TextView
+        android:id="@+id/tvTituloConta"
+        android:layout_width="47dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="28dp"
+        android:text="Conta"
+        android:textColor="@color/textColor"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeDoCliente" />
+
+    <TextView
+        android:id="@+id/tvNumeroConta"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="13dp"
+        android:text="2050/01.111222-4"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/tvTituloConta"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_titulo1"/>
+
+    <TextView
+        android:id="@+id/tvTituloSaldo"
+        android:layout_width="47dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="28dp"
+        android:text="Saldo"
+        android:textColor="@color/textColor"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumeroConta" />
+
+    <TextView
+        android:id="@+id/tvValorSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="13dp"
+        android:text="R$ 1.000,00"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/tvTituloSaldo"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_titulo1"/>
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="234dp"
-            android:background="#3B49EE">
+    <TextView
+        android:id="@+id/tvTituloRecentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:text="Recentes"
+        android:textColor="#485465"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        android:layout_marginStart="@dimen/marginStart"/>
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="0.1"
-                android:paddingLeft="13dp"
-                app:srcCompat="@drawable/logout_2" />
-        <TextView
-            android:id="@+id/txt_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="HelveticaNeue"
-            android:paddingLeft="18dp"
-            android:paddingTop="40dp"
-            android:text="José da Silva Teste"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/txt_conta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="HelveticaNeue"
-            android:paddingLeft="18dp"
-            android:paddingTop="80dp"
-            android:text="Conta"
-            android:textSize="12sp"
-            android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/txt_num_conta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="HelveticaNeue"
-                android:paddingLeft="18dp"
-                android:paddingTop="100dp"
-                android:text="250/01.000110-32"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/txt_saldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="HelveticaNeue"
-                android:paddingLeft="18dp"
-                android:paddingTop="150dp"
-                android:text="Saldo"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/txt_num_saldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="HelveticaNeue"
-                android:paddingLeft="18dp"
-                android:paddingTop="180dp"
-                android:text="R$ 1.000,00"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
-
-
-        </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/note_list_recyclerview"
+        android:id="@+id/dados_list_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/adapter_conta"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloRecentes"
+        android:scrollbars="vertical"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

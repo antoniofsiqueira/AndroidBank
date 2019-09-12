@@ -13,7 +13,7 @@ class RestClient {
             if(restrofitClient==null){
                 var gson = GsonBuilder().setDateFormat("dd/MM/yyyy").create()
                 restrofitClient = Retrofit.Builder()
-                    .baseUrl("https://bank-app-test.herokuapp.com/api/")
+                    .baseUrl(" https://bank-app-test.herokuapp.com/api/")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
             }
